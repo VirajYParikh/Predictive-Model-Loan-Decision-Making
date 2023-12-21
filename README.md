@@ -12,7 +12,7 @@
 5. Feature Engineering
    5.1. Feature Selection
    5.2. Feature Transformation
-6. Modeling and Evaluation
-7. Decision Logic
-8. Conclusion
-9. Citations
+7. Modeling and Evaluation
+8. Decision Logic
+9. Conclusion
+10. Citations
