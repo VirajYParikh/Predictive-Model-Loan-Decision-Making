@@ -102,4 +102,91 @@ Interestingly most of the loans were taken for household appliances like Radio a
 On the other hand, loans given out for new cars seemed to have relatively stronger tendencies to default. Moreover, a large amount of loans were given to customers with no checking accounts suggesting that having a checking amount may not always be necessary to provide loans.
 We can see from the scatterplot below that most requested loans are from people between ages 20-40 with a requested credit amount between $0-$5000.
 
+<div align="center">
+<img width="532" alt="Screenshot 2023-12-21 at 2 55 17 PM" src="https://github.com/VirajYParikh/Predictive-Model-Loan-Decision-Making/assets/67093208/cfcbb1b7-8982-49b4-9b27-ed9fdf7f5fd3">
+</div>
 
+
+## 5. FEATURE ENGINEERING
+As we analyzed the data, going further, we need to select and prepare our features to train the model.
+
+a. Feature Selection
+There were certain categorical features (other_parties, foreign_worker, own_telephone, other_payment_plans and class), which were directly converted into binary variables. Post that, we plotted the correlation matrix between the available continuous variables and the target variable (class).
+
+<div align="center">
+<img width="532" alt="Screenshot 2023-12-21 at 2 56 56 PM" src="https://github.com/VirajYParikh/Predictive-Model-Loan-Decision-Making/assets/67093208/b70e95c8-31b5-415e-9807-26463e689274">
+</div>
+
+From the correlation matrix we can see that there are multiple features with very low correlation value with the target class, so we eliminated any feature which has a correlation < | 0.1 | with ‘class’ , as they don’t contribute much to it.
+After, we had selected the continuous features, we had to check how much do the categorical variables contribute to the formulation of the target variable. To do this, we performed a Chi-Squared test, to get the Chi-Square metric and the corresponding p- value. By analyzing the chi-square statistic and corresponding p-values, we can identify features that exhibit strong associations with the target class. The chi-square statistic measures the difference between the observed frequencies and the expected frequencies
+  
+under the assumption of independence. The corresponding p-value indicates the probability of obtaining such an extreme or more significant result if there were no association between the variables.
+Choosing features based on the chi-square statistic and p-value is essential for training a predictive model. Features with high chi-square statistics suggest a substantial association with the target class. This indicates that the feature provides valuable discriminatory information that can help differentiate between different classes of the target variable. Features with low p-values indicate a high level of statistical significance, suggesting that the observed association is unlikely to occur by chance. Therefore, when selecting features for model training, it is advisable to prioritize those with both high chi-square statistics and low corresponding p-values. These features are more likely to contribute significantly to the predictive power of the model and capture important patterns related to the target class. By incorporating such features into the model, we can potentially improve its accuracy and performance in predicting the target variable.
+
+So, we selected the features which have a chi-square statistic greater than 10 and a corresponding p-value being lesser than 0.05.
+
+**The finally selected features are: checking_status, credit_history, purpose, savings_status, employment, housing, other_payment_plans, credit_amount, property_magnitude and duration.**
+
+And we can see here that out of all the features, the selected ones are the most relevant to acquiring a loan.
+
+b. Feature Transformation
+
+Now, that we have selected the features, we still need to transform them into being suitable as training input of the model.
+We converted the categorical features into One-Hot representations. About the categorical variables, as you can see in the code, both credit_amount and duration were positively skewed and we used Box-Cox transformation to transform them.
+
+<div align="center">
+<img width="600" alt="Screenshot 2023-12-21 at 3 01 35 PM" src="https://github.com/VirajYParikh/Predictive-Model-Loan-Decision-Making/assets/67093208/0a18db5f-26fc-4485-8464-f270ded712df">
+</div>
+
+
+<div align="center">
+<img width="600" alt="Screenshot 2023-12-21 at 3 01 54 PM" src="https://github.com/VirajYParikh/Predictive-Model-Loan-Decision-Making/assets/67093208/b93f4446-5cd5-4ba0-ad51-a0cbbaf7b8f6">
+</div>
+
+This ensures that we filter out any outliers which would lead to a skewed prediction.
+To get a better representation of the purpose of the loans we grouped all the loan types mentioned in the dataset under 4 broad loan categories:
+
+1. Personal Loan:
+   
+• Repairs
+
+• Retraining
+
+• Furniture/Equipment
+
+• Other
+
+• Domestic Appliances
+
+2. Auto Loan:
+   
+• New car
+
+• Old car
+
+3. Business Loan
+ 
+5. Education Loan
+
+## 6. MODELING AND EVALUATION
+Now, that we have the data ready to be input into the model, we proceed with modeling.
+Since the target variable is a yes or a no (good loan or bad loan / 1 or 0), we would be using classification models to train and test the data on.
+
+We split the data into training and testing with a split of 80% for training and 20% for testing. We worked on two classifiers:
+• Random-Forest Classifier: Tested the model for min_samples_leaf values: [1, 2, 4, 8, 16, 32, 64, 128] and tree depth ranging from 1 to 10.
+
+• Logistic Regression Classifier: Tested the model for C values: [0.001, 0.01, 0.1, 1, 10, 100].
+
+After finding the best set of hyperparameters for both models, we plotted the ROC curve for both of those.
+
+<div align="center">
+<img width="425" alt="Screenshot 2023-12-21 at 3 05 21 PM" src="https://github.com/VirajYParikh/Predictive-Model-Loan-Decision-Making/assets/67093208/58fba2fc-eb9d-4b9e-9d05-1bf6400c9b8a">
+</div>
+
+
+Different evaluation metrics:
+• Random Forest: f1 score = 0.85, accuracy = 0.76, AUC = 0.80
+
+• Random Forest: f1 score = 0.85, accuracy = 0.78, AUC = 0.82
+
+The evaluation metric we considered to choose between classifiers is AUC (Area Under the Curve). As we can see from the ROC plot the **Logistic Regression Classifier** performs better than the Random Forest Classifier with an AUC of 0.82.
