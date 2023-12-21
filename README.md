@@ -31,7 +31,6 @@ The loan approval process involves a comprehensive evaluation of various factors
 Following are the steps we’ll follow:
 
 **Step 1**: Extract data.
-
 **Step 2**: Clean the data.
 
 **Step 3**: Analyze the data.
