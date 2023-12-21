@@ -43,3 +43,18 @@ Following are the steps we’ll follow:
 **Step 6**: Implement the business requirements on the best model. 
 
 **Step 7**: Repeat from step 5.
+
+## 2. BUSINESS ASPECT
+In the subsequent step of the risk assessment process, the model will assign a range of values (confidence in the fact that they should be given a loan to each instance. This allows loans to be granted exclusively to customers whose associated risk falls below the specified threshold.
+
+Default Risk: Defaulting on a loan means failing to pay it back, so each person’s probability that
+they’ll fail to pay back their loan is called their default risk.
+
+While minimizing defaults can be done just with this information, it is important to note that our primary objective is to maximize profitability within a specific budget the bank has which can be given as loans. Thus, we employ various mathematical formulae that incorporate factors such as minimizing default credit rates, total budget, and more. These calculations are designed to optimize profitability and achieve the best possible outcomes.
+One approach involves determining an expected value from the loan portfolio by considering both the anticipated return from successful loans and the expected loss resulting from defaults. To calculate this, we utilize the following mathematical formula:
+Expected Value = (1 – risk) * Interest + risk * credit amount Where,
+• risk: The probability that a person will default on a loan (1 – confidence).
+• interest: The calculated value of applicable interest, assuming the loan is given,
+calculated by incorporating the associated risk.
+• Credit amount: Requested loan amount.
+By leveraging this formula, we can determine the best model and threshold values that lead to optimal profitability. This comprehensive approach ensures that our efforts go beyond solely minimizing defaults and focus on making well-informed decisions that maximize profitability while effectively managing credit default rates.
