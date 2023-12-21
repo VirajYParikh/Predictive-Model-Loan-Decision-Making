@@ -190,3 +190,27 @@ Different evaluation metrics:
 • Random Forest: f1 score = 0.85, accuracy = 0.78, AUC = 0.82
 
 The evaluation metric we considered to choose between classifiers is AUC (Area Under the Curve). As we can see from the ROC plot the **Logistic Regression Classifier** performs better than the Random Forest Classifier with an AUC of 0.82.
+
+## 7. DECISION LOGIC
+
+Now that we have the best classifier to use, we calculate the confidence (probability), to see which applicants have a better credit standing to be eligible for the loan. The objective here is not only to identify the bad loans, but also to identify good loans to get the best profits and the least credit default risks, which is generally a tradeoff. There may be instances where the risks associated to a loan are slightly high yet producing good profits. We calculate the risk based on the confidence levels we found previously.
+
+Determining somebody’s default risk is important since it helps to calibrate their interest rates to
+mitigate the risk of lending money to them.
+
+There are multiple ways we can mitigate risks associated with loans:
+
+1. Increasing everyone’s interest rates to make up for the losses.
+   
+2. Only accepting safe borrowers
+ 
+3. Charging people interest rates proportional to their default risk.
+
+We have worked on the 3rd method as according to us it is the most promising and rewarding, giving us more flexibility to maximize profit.
+We combined various purposes into 4 types of loan, and we set the base rates (set the values based on averages found on the internet):
+
+<div align="center">
+<img width="425" alt="Screenshot 2023-12-21 at 3 21 55 PM" src="https://github.com/VirajYParikh/Predictive-Model-Loan-Decision-Making/assets/67093208/54b6c070-9733-42b6-8cd7-ca9fd35ae342">
+</div>
+
+
