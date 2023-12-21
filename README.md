@@ -31,8 +31,15 @@ The loan approval process involves a comprehensive evaluation of various factors
 Following are the steps we’ll follow:
 
 **Step 1**: Extract data.
+
 **Step 2**: Clean the data.
+
 **Step 3**: Analyze the data.
+
 **Step 4**: Feature selection.
+
 **Step 5**: Train and test different models.
-**Step 6**: Implement the business requirements on the best model. Step 7: Repeat from step 5.
+
+**Step 6**: Implement the business requirements on the best model. 
+
+**Step 7**: Repeat from step 5.
