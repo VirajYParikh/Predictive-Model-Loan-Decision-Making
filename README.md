@@ -60,4 +60,46 @@ Expected Value = (1 – risk) * Interest + risk * credit amount where,
 calculated by incorporating the associated risk.
 
 • Credit amount: Requested loan amount.
+
 By leveraging this formula, we can determine the best model and threshold values that lead to optimal profitability. This comprehensive approach ensures that our efforts go beyond solely minimizing defaults and focus on making well-informed decisions that maximize profitability while effectively managing credit default rates.
+
+## 3. INTRODUCTION TO DATA
+
+Here is a screenshot of the dataset (sourced from Kaggle) we are looking to use and the features we will be considering for the business proposition mentioned above:
+
+<div align="center">
+<img width="1440" alt="Screenshot 2023-12-21 at 1 50 44 PM" src="https://github.com/VirajYParikh/Predictive-Model-Loan-Decision-Making/assets/67093208/0f0f9aab-6314-4509-b597-211de8ef5663">
+</div>
+
+The following are the attributes taken into consideration:
+
+
+## 4. EXPLORATORY DATA ANALYSIS
+All the data was initially analyzed, wherein it was deduced that there were no null values, we had 7 continuous and 13 categorical attributes with a total of 1000 instances. We used class as the target variable with many good loans, the count being 700 good and 300 bad, which implies that there is a slight disproportion in the data.
+
+<div align="center">
+<img width="517" alt="Screenshot 2023-12-21 at 1 58 14 PM" src="https://github.com/VirajYParikh/Predictive-Model-Loan-Decision-Making/assets/67093208/703d5828-9978-434c-955d-e86e915ef0e0">
+</div>
+
+It can be observed that the maximum credit loan amounts were around $0-$5000, with the highest frequency around $2500.
+
+<div align="center">
+<img width="517" alt="Screenshot 2023-12-21 at 1 59 26 PM" src="https://github.com/VirajYParikh/Predictive-Model-Loan-Decision-Making/assets/67093208/1fc283ef-4a62-46f2-8cd5-fc7aa4aff695">
+</div>
+
+From the employment bar chart, we realized that people who were either unemployed or were employed for less than a year had a higher tendency to default. Moreover, it was the unemployed people who had requested the biggest and highest requested credit amounts. Both points suggest a better prediction mechanism to ensure that the loans are correctly given.
+
+<div align="center">
+<img width="486" alt="Screenshot 2023-12-21 at 2 00 07 PM" src="https://github.com/VirajYParikh/Predictive-Model-Loan-Decision-Making/assets/67093208/f41dccf2-5a0d-4b82-9778-89a1d90147e7">
+</div>
+
+Interestingly most of the loans were taken for household appliances like Radio and TV which having relatively low costs seem to be better loans.
+
+<div align="center">
+<img width="532" alt="Screenshot 2023-12-21 at 2 00 51 PM" src="https://github.com/VirajYParikh/Predictive-Model-Loan-Decision-Making/assets/67093208/8bf67351-1127-4da0-b0d2-02ab1a7e539e">
+</div>
+
+On the other hand, loans given out for new cars seemed to have relatively stronger tendencies to default. Moreover, a large amount of loans were given to customers with no checking accounts suggesting that having a checking amount may not always be necessary to provide loans.
+We can see from the scatterplot below that most requested loans are from people between ages 20-40 with a requested credit amount between $0-$5000.
+
+
