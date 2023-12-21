@@ -6,15 +6,17 @@
 1. Introduction
 
    a. Objective
+   
    b. Plan of Action
-2. Business Aspect of the Problem
-3. Introduction to Data
-4. Exploratory Data Analysis
-5. Feature Engineering
+3. Business Aspect of the Problem
+4. Introduction to Data
+5. Exploratory Data Analysis
+6. Feature Engineering
 
    a. Feature Selection
+   
    b. Feature Transformation
-6. Modeling and Evaluation
-7. Decision Logic
-8. Conclusion
-9. Citations
+7. Modeling and Evaluation
+8. Decision Logic
+9. Conclusion
+10. Citations
