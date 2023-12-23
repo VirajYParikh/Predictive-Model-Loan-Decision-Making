@@ -213,4 +213,45 @@ We combined various purposes into 4 types of loan, and we set the base rates (se
 <img width="425" alt="Screenshot 2023-12-21 at 3 21 55 PM" src="https://github.com/VirajYParikh/Predictive-Model-Loan-Decision-Making/assets/67093208/54b6c070-9733-42b6-8cd7-ca9fd35ae342">
 </div>
 
+After this, we calculate risk as:
+<div align="center">
+risk = 1 – confidence
+</div>
 
+and used this to evaluate the additional interest rate that needs to be added to the base rate for each applicant, so the total interest rate for each applicant becomes:
+
+<div align="center">
+Interest = Base interest rate + ( risk / (1 – risk) ) [1]
+</div>
+
+Using this interest value, we calculated the profit that we will get if the complete loan is re-paid. using the compound interest formula with credit_amount as principal and the duration of the loan.
+
+We then calculated the Expected Benefit from each applicant. There are multiple cases of non- payment of dues and expected loss during the duration of the loan, but we have only considered the case whether a person either does pay the entire amount back with interest or doesn’t pay anything at all, as including all other cases to evaluate the accurate Expected Benefit would require domain knowledge of the banking system.
+
+<div align='center'>
+Expected Benefit (Future Value) = confidence * interest - risk * credit_amount
+</div>
+
+This equation doesn’t however include the time value of money, so we introduced this concept to determine the ‘Present Value” of the absolute value calculated from the Expected Benefit (Future Value).
+
+Expected Benefit (Present Value) = Expected Benefit (Future Value) / (1 + risk)n [2]
+Where, n is the duration in years.
+We then ranked the applicants in order of maximum expected benefit (Present Value) and plotted a profit curve which tells what percentage of users to select to maximize the profit given a set budget. Different budget-profit markers can be seen on the profit curve.
+
+
+<img width="831" alt="Screenshot 2023-12-23 at 10 51 10 AM" src="https://github.com/VirajYParikh/Predictive-Model-Loan-Decision-Making/assets/67093208/753210f7-cd26-4d9d-b645-c88af9961b23">
+
+
+## 8. CONCLUSION
+
+We can now determine the optimal number of customers to target to achieve the desired profit while adhering to a predetermined budget, as demonstrated by the profit curve presented above. This approach has enabled us to develop an effective credit risk model along with its associated profit curves. Many organizations have successfully utilized this methodology to make informed decisions when granting loans, resulting in substantial profits. Such practices are expected to persist in the future.
+At present, numerous sophisticated models exist within the industry. Therefore, the key to further enhancing profits lies in exploring alternative mathematical formulations. By delving into innovative approaches and refining existing models, we can unlock additional opportunities for maximizing profitability. Continuous research and development efforts in this realm will drive advancements in the field, enabling organizations to refine their lending strategies and achieve even greater success.
+It is important to acknowledge that while mathematical models provide valuable insights and facilitate decision-making processes, they should be complemented by domain expertise and careful evaluation of real-world factors. Additionally, ongoing monitoring and validation of these models are crucial to ensure their reliability and effectiveness in various scenarios.
+In conclusion, by leveraging the power of advanced models and continuously seeking improvements through innovative mathematical formulations, organizations can enhance their loan granting processes, optimize profits, and remain at the forefront of the industry. This pursuit of excellence will continue to shape the future of lending practices, benefiting both financial institutions and borrowers alike.
+
+## 9. CITATIONS
+1. https://www.kaggle.com/
+2. https://www.google.com/
+3. https://towardsdatascience.com/credit-risk-modeling-with-machine-learning-
+8c8a2657b4c4
+4. https://www.5minutefinance.org/concepts/time-value-of-money-single-cash-flows
